@@ -79,6 +79,7 @@
 ]
 
 #example[
+
   Supposons que l'on ait $cases(6 "pièces de" 1 euro,1 "billet de " 5 euro,2 "pièces de "10 euro)$
 
   Et posons $a_n$ le nombre de combinaisons possibles pour fabriquer un montant de $n$ euros
@@ -116,7 +117,7 @@
   $
   f(X) = &a_0 + &a_1 X + &a_2 X^2 + ... \
   X f(X) = &0 + &a_0 X + &a_1 X^2 + ... \
-  X f(X) = &0 + &0 + &a_0 X^2 + ... \
+  X^2 f(X) = &0 + &0 + &a_0 X^2 + ... \
   $
 
   Ainsi :
@@ -140,9 +141,11 @@
   et on trouve ainsi $f(X) = 1/sqrt(5) [(phi)/(1-(1/phi) X) - (psi)/(1-(1/psi) X)]$ 
 
   En développant en série enière :
-  $f(X) = sum_(n = 0)^(infinity)1/sqrt(5) phi (1/phi)^n - 1/sqrt(5) psi (1/psi)^n$
+  $
+  f(X) &= sum_(n = 0)^(infinity)[1/sqrt(5) phi (1/phi)^n - 1/sqrt(5) psi (1/psi)^n]X^n \
+  &= sum_(n=0)^(infinity) (phi^(1-n)-psi^(1-n))/sqrt(5)X^n
+  $
 
-  wtf ok je reverrai plus tard
 ]
 
 #example[
