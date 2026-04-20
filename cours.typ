@@ -569,7 +569,7 @@
 #definition[
   Soient $KK,L$ deux corps.
 
-  Un morphisme de corps $f : KK -> L$ est une aplicatio qui satisfait :
+  Un morphisme de corps $f : KK -> L$ est une application qui satisfait :
   + $forall x,y in KK$, $f(x) + f(y) = f(x + y)$
   + $forall x,y in KK$, $f(x)f(y) = f(x)f(y)$
   + $f(0) = 0$, $f(1) = 1$
