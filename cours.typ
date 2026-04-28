@@ -582,15 +582,15 @@
   $application(RR,CC,x,x)$, $application(CC,CC,z,bar(z))$ sont des morphismes de corps
 ]
 
-#example[
+#property[
   Si $KK$ est un corps de caractéristique $p != 0$, alors :
 
   $f : application(KK,KK,X,X^p)$ est un morphisme de corps injectif.
 
   Si en plus $KK$ est fini, alors c'est une bijection.
+]
 
-  #underline[Démonstration] :
-
+#proof[
   Soient $x,y in KK$
 
   $f(1) = 1^p = 1$
@@ -602,4 +602,189 @@
   On a facilement $p | binom(p,i)$ pour tout $i in nint(1,p-1)$, donc la somme est nulle.
   
   Ainsi $f(x + y) = x^p + y^p = f(x) + f(y)$, d'où le morphisme.
+]
+
+#corollary[
+  Si $KK$ est fini de caractéristique $p$, alors $x |-> x^p$ est un morphisme bijectif.
+]
+
+#proof[
+  $phi$ est injective car si $x,y in KK$ sont tels que $phi(x) = phi(y)$, $phi(x-y) = 0$
+
+  Supposons par l'absurde que $x-y != 0$. Alors on peut trouver $(x-y)^(-1)$ tq : $phi(x-y) phi((x-y)^(-1)) = phi(1) = 1$
+
+  Or $phi(x-y) = 0$. Contradiction, CQFD
+]
+
+#theorem[
+  Soit $KK$ un corps. Il existe $LL$ un corps tel que :
+  + $KK subset LL$
+  + tout $P in LL[X]$ admet une racine dans $LL$
+  + à morphisme près, il existe un unique plus petit corps $LL$ (au sens $subset$) vérifiant les propriétés précédentes.
+]
+
+#remark[
+  Ce plus petit $LL$ s'appelle *clôture algébrique* de $KK$. Et on a : $car(KK) = car(LL)$
+]
+
+#property[
+  Soit $KK$ un corps fini de caractéristique $p$. Alors $KK$ est un $FF_p$-espace vectoriel de dimension finie.
+]
+
+#corollary[
+  Le cardinal d'un corps fini est une puissance de son caractéristique.
+]
+
+#theorem[
+  Soit $p$ un nombre premier. Soit $n in NN^*$. Il existe un corps fini de cardinal $p$. Il est unique à isomorphisme près.
+]
+
+#proof[
+  Considérons $LL$ une clôture algébrique de $FF_p$. Posons $q = p^n$ et $P(X) = X^q - X in FF_p [X] subset LL[X]$
+
+  D'après la propriété de clôture algébrique, $p$ est scindé dans $LL$.
+
+  On a $P prime(X) = q X^(q-1) - 1 = p^n X^(q-1)-1 = -1$ car $p = 0$ dans un corps de caractéristique $p$.
+
+  On pose $KK = {"racines de "P}$ qui est de cardinal $q$. Montrons que c'est un corps.
+
+  Soit $0,1 in KK$. Supposons $ x,y in KK$. Alors :
+  $
+  (x+y)^q = underbrace(((((x+y)^p)^dots))^p,p "fois") = underbrace(((((x^p+y^p)^p)^dots))^p,p-1 "fois") = ... = x^(p^n) + y^(p^n) = x^q + y^q
+  $
+
+  Comme $x,y in KK$, $x^q = x$ et $y^q = y$
+
+  Donc $(x+y)^q = x+y in KK$
+
+  On a $(x y)^q = x^q y^q = x y in KK$
+]
+
+#definition("Ordre d'un élément")[
+  Soit $KK$ un corps de caractéristique $p$ de cardinal $q = p^n$
+
+  Soit $a in KK^*$
+
+  On définit $ord(a)$ l'ordre de $a$ comme le plus petit entier $k$ non-nul tel que $a^k = 1$ dans $KK$.
+]
+
+#remark[
+  Celui-ci existe car $a^(q-1) = 1$ donc $ord(a) <= q-1$
+]
+
+#proposition[
+  Avec les mêmes hypothèses, $ord(a) divides q-1$
+]
+
+#proposition[
+  Si $a^k = 1$, alors $ord(a) | k$
+]
+
+#proposition[
+  Supposons que $a in KK^*, ord(a) = e in NN^*$
+
+  Alors $X^e - 1 = (X-1)(X-a)...(X-a^(e-1)) = product_(i=0)^(e-1) X-a^i in KK[X] $
+]
+
+#proof[
+  Pour tout $i in [|0,e-1|]$, $(a^i)^e = (a^e)^i = 1$ et $(a^i)$ est une racine de $X^e - 1$
+
+  Si $i,j in [|0,e-1|]$, alors :
+
+  $a^i = a^j <==> a^(j-i) = 1 <==> e divides j - i <==> j-i = 0 <==> j = i$
+
+  Donc $1, a, dots, a^(e-1)$ sont les $e$ racines distinctes de $X^e - 1$
+]
+
+#proposition[
+  $ord(a^i) = (i or e)/i <= e$
+]
+
+#proof[
+  $(a^i)^k = 1 <==> e divides i k$
+
+  $k$ est le plus petit entier tel que $(a^i)^k = 1$ 
+  
+  $<==>$
+
+  $k$ est le plus petit entier tel que $i k$ est multiple de $e$
+
+  $<==>$
+
+  $k = (i or e)/i$
+]
+
+#proposition[
+  Pour $e$ un ordre, $Card({"Racines de " X^e - 1}) = phi(e)$
+]
+
+#theorem[
+  Soit $KK$ un corps fini de caractéristique $p$ et de cardinal $q$.
+
+  Alors il existe $x in KK^*$ tel; que :
+  $ KK = {0,1,x,dots,x^(q-2)} $
+]
+
+#definition[
+  Une fonction arithmétique est une fonction de $NN^*$ dans $CC$
+]
+
+#remark[
+  C'est une suite de nombres complexes.
+]
+
+#definition[
+  Une fonction arithmétique $f : NN^* --> CC$ est multiplicative si pour tout $a,b in NN^*$ :
+  $
+  a and b = 1 ==> f(a b) = f(a)f(b)
+  $
+
+  Si cest vrai sans l'hypothèse $a and b = 1$, alors $f$ est dite complètement multiplicative.
+]
+
+#definition[
+  Soient $f$ et $g$ des fonctions arithmétiques. Le produit de convolution de Dirichlet de $f$ et $g$ est $f convolve g$ défini par :
+  $
+  (f convolve g)(n) = sum_(d divides n) f(d) g(n/d) (= sum_(a,b in NN^*, a b) f(a)g(b))
+  $
+]
+
+#proposition[
+  - $f convolve g = g convolve f$ et $f convolve (g convolve h) = (f convolve g) convolve h$
+  - $delta convolve f = f$ (avec $delta$ la fonction indicatrice de ${1}$ restreinte à $NN^*$)
+  - $f convolve (g + h) = f convolve g + f convolve h$
+]
+
+#theorem[
+  - Si $f$ et $g$ sont multiplicatives, alors $f convolve g$ l'est aussi
+  - L'inverse d'une fonction multiple par rapport à la convolution existe et est multiplicative.
+]
+
+#proposition[
+  L'inverse par la convolution de $f$ est $g$ telle que : $f convolve g = delta$
+
+  c'est-à-dire :
+  $
+  forall n in NN^* : sum_(d divides n) f(d) g(n/d) = cases(0 " " &"si" n>= 2,1 &"si" n = 1)
+  $
+]
+
+#theorem[
+  La fonction d'Euler est multiplicative.
+]
+
+#proof[
+  On a : $forall n in NN^*$, $n = sum_(d divides n) phi(d)$
+
+  C'est-à-dire : $Id = bb(1) convolve phi$ (avec $bb(1) : n |-> 1$)
+
+  D'après le théorème, $bb(1)$ admet un inverse $mu$ multiplicative.
+
+  Donc $mu convolve Id = mu convolve bb(1) convolve phi = delta convolve phi = phi$ et $phi$ est multiplicative.
+]
+
+#remark[
+  $mu$ est la "fonction de Moebius" et est définie comme :
+
+  $ mu(n) = cases(0 "   "&"si" n "est divisible par un carré parfait" != 1,1 &"si" n "est le produit d'un nombre pair de premiers distincts",-1 &"si" n "est le produit d'un nombre impair de premiers distincts") $
 ]
