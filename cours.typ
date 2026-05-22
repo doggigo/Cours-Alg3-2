@@ -233,21 +233,21 @@
   Soient $a,b,c in NN^*$ tels que $a and b = 1$
 
   Alors :
-  + $a | b c ==> a | c$
-  + $a | c, b | c ==> a b | c$
+  + $a divides b c ==> a divides c$
+  + $a divides c, b divides c ==> a b divides c$
 ]
 
 #proof[
-  + Supposons que $a | b c$
+  + Supposons que $a divides b c$
 
     Par le théorème de Bézout, on peut trouver $k,l in ZZ$ tels que $l a + l b = 1$
 
     Donc $c = c cdot 1 = c k a + c l b$
 
-    Comme $a | c l b$ et $a | c k a$, on a $a | c$
-  + Suppposons $a | c, b | c$. Alors posons $c = b k$, $k in NN$
+    Comme $a divides c l b$ et $a divides c k a$, on a $a divides c$
+  + Suppposons $a divides c, b divides c$. Alors posons $c = b k$, $k in NN$
 
-    Par le $1)$, $a | k$. Donc $j = a l$ avec $l in NN$. Par conséquent $c = a b l$
+    Par le $1)$, $a divides k$. Donc $j = a l$ avec $l in NN$. Par conséquent $c = a b l$
 ]
 
 #theorem[
@@ -267,19 +267,19 @@
 
   Il reste à mq $M >= d r s$
 
-  Comme $a | M$, on a $M = a k = d r k$ avec $k in NN$
+  Comme $a divides M$, on a $M = a k = d r k$ avec $k in NN$
 
   De même, on a $M = b l = d s l$ avec $l in NN$.
 
-  On pose $P = M/d$. On a $P in NN$ car $d | M$
+  On pose $P = M/d$. On a $P in NN$ car $d divides M$
 
   On a $p = r k = s l$
 
   #underline[Remarque] : $a = d r, b = d s$. On a $r and s = 1$, car sinon $a and b > d$
 
-  Comme $r k = P = s l$, on a $r | s l = P$
+  Comme $r k = P = s l$, on a $r divides s l = P$
 
-  D'après le lemme d'Euclide, $r | l$.
+  D'après le lemme d'Euclide, $r divides l$.
 
   Ainsi $l >= r$. Par conséquent, $M = d s l >= d s r$
 ]
@@ -296,7 +296,7 @@
 ]
 
 #definition("Valuation p-adique")[
-  La valuation de $n in ZZ^*$ par rapport à $p in PP$ est l'entier maximal $alpha$ tel que $p^alpha | n$, notée $v_p (n)$
+  La valuation de $n in ZZ^*$ par rapport à $p in PP$ est l'entier maximal $alpha$ tel que $p^alpha divides n$, notée $v_p (n)$
 ]
 
 #remark[
@@ -316,7 +316,7 @@
 
 #definition[
   On définit une relation binaire sur $ZZ$, une fois on fixe un entier $n in NN without {0,1}$ telle que :
-  $ forall a,b in ZZ : a ~ b <==> n | b-a $
+  $ forall a,b in ZZ : a ~ b <==> n divides b-a $
 ]
 #remark[
   C'est une relation d'équivalence
@@ -353,7 +353,7 @@
 
   Donc $(j-i) a = -k n$
 
-  En particulier $a | k n$. Comme $a,n$ sont premiers entre eux, par le lemme d'Euclide, $a | k$. On peut écrire $k = a A$ avec $A in ZZ$.
+  En particulier $a divides k n$. Comme $a,n$ sont premiers entre eux, par le lemme d'Euclide, $a divides k$. On peut écrire $k = a A$ avec $A in ZZ$.
 
   Donc : $j-i = - A n$. Contradiction car $1 <= j-i <= n-1$
 ]
@@ -426,7 +426,7 @@
 
   Donc $a b = 1 + n k$ pour un $k in ZZ$
 
-  Si $d | a$ et $d | n$, alors $d | a b - n k = 1$. Donc $a and n = 1$
+  Si $d divides a$ et $d divides n$, alors $d divides a b - n k = 1$. Donc $a and n = 1$
 ]
 
 #corollary[
@@ -440,7 +440,7 @@
 ]
 
 #proposition[
-  Pour tout $n >= 1$, $n = sum_(d | n) phi(d)$
+  Pour tout $n >= 1$, $n = sum_(d divides n) phi(d)$
 ]
 
 #example[
@@ -448,7 +448,7 @@
 ]
 
 #proof[
-  $Card([|1,n|]) = sum_(d | n) Card{a in [|1,n|], a and n = d}$
+  $Card([|1,n|]) = sum_(d divides n) Card{a in [|1,n|], a and n = d}$
 ]
 
 #lemma[
@@ -460,7 +460,7 @@
 
   Si $b in B_i$, alors $b d in [|1,n|]$. Il faut vérifier que $b d and n = d$
 
-  Comme $d | b d, d | n$. $d <= b d and n$
+  Comme $d divides b d, d divides n$. $d <= b d and n$
 
   Par théorème de Bezout, il existe $k,l in ZZ$ tel que $k b = l n/d = 1$
 
@@ -476,17 +476,17 @@
 
   Donc $f$ injective.
 
-  Soit $x in A$. Alors $d | X$ c'est-à-dire $x/d in B$.
+  Soit $x in A$. Alors $d divides X$ c'est-à-dire $x/d in B$.
 
   Il reste à mq $x/d and n/d = 1$.
 
-  Si $x/d and n/d = m > 1$, alors $m d | x, m d | n$, contradiction.
+  Si $x/d and n/d = m > 1$, alors $m d divides x, m d divides n$, contradiction.
 ]
 
 #proof("De la proposition")[
   $
-    n & = sum_(d | n) Card({a in nint(1, n) | a and n = 1}) = sum_(d | n) Card({b in nint(1, n/d), b and n/d = 1}) \
-      & = sum_(d | n) phi(n/d) = sum_(d | n) phi(d)
+    n & = sum_(d divides n) Card({a in nint(1, n) | a and n = 1}) = sum_(d divides n) Card({b in nint(1, n/d), b and n/d = 1}) \
+      & = sum_(d divides n) phi(n/d) = sum_(d divides n) phi(d)
   $
 ]
 
@@ -529,6 +529,18 @@
 
   L'unicité est à démontrer en exo.
 
+]
+
+#method[
+  Soit $
+  (E) : cases(x equiv a_1 mod(N_1),vdots,x equiv a_n mod(N_n))
+  $
+  où les $N_k$ sont deux-à-deux premiers entre eux 
+  - Pour tout $k in [|1,n|]$ :
+    + poser $r_k = N_k$, $R_k = product_(i != k) N_i$
+    + Trouver $M_k = R_k^(-1)$ modulo $r_k$
+  
+  - poser x = $sum_(k = 1)^n a_k R_k M_k mod(product_(k=1)^n N_k)$
 ]
 
 = Théorie des corps fini
@@ -599,7 +611,7 @@
 
   $f(x + y) = (x+y)^p = sum_(i=0)^p binom(p,i)x^i y^(p-i) = x^p + y^p + sum_(i=1)^(p-1) binom(p,i) x^i y^(p-i)$.
 
-  On a facilement $p | binom(p,i)$ pour tout $i in nint(1,p-1)$, donc la somme est nulle.
+  On a facilement $p divides binom(p,i)$ pour tout $i in nint(1,p-1)$, donc la somme est nulle.
   
   Ainsi $f(x + y) = x^p + y^p = f(x) + f(y)$, d'où le morphisme.
 ]
@@ -677,7 +689,7 @@
 ]
 
 #proposition[
-  Si $a^k = 1$, alors $ord(a) | k$
+  Si $a^k = 1$, alors $ord(a) divides k$
 ]
 
 #proposition[
@@ -756,17 +768,114 @@
 ]
 
 #theorem[
-  - Si $f$ et $g$ sont multiplicatives, alors $f convolve g$ l'est aussi
-  - L'inverse d'une fonction multiple par rapport à la convolution existe et est multiplicative.
+  Si $f$ et $g$ sont multiplicatives, alors $f convolve g$ l'est aussi
+]
+#proof[
+  Considérons 
+  $
+  phi : application({(d_1,d_2) \\ d_1 divides n and d_2 divides m},{d in NN | d divides n m},(d_1\,d_2),d_1 d_2)
+  $
+  où  $m$ et $n$ sont des entiers fixés premiers entre eux.
+
+  + $f$ est bien définie
+  + Montrons que $f$ est injective :
+    
+    Soit $d$ tel que $ d divides n m$. Alors :
+    - Soit $p$ est un diviseur premier de $d$
+    - Soit $p divides n$ et $p divides m$
+    Les 2 possibilités étant exclusives, on peut écrire : $d = product_(p_i divides n)p_i^(alpha_i) product_(q_j divides m) q_j^(beta_j)$
+
+    Ainsi :
+    $
+    d = phi(product_(p_i divides n) p_i^(alpha_i),product_(q_j divides m) q_j^(beta_j))
+    $
+  + Supposons que $phi(d_1,d_2) = phi(e_1,e_2)$
+    Alors $d_1 d_2 = e_1 e_2$
+
+    Comme $d_1 divides e_1 e_2$ et $d_1 and e_2 = 1$ car $n and m = 1$, on a $d_1 divides e_2$ (lemme d'Euclide)
+
+    De même, $e_1 divides d_1$ donc $d_1 = e_1$ et $d_2 = e_2$
+
+  Ainsi : 
+  $
+  f convolve g(n m) &= sum_(d divides n m) f(d) g((n m)/d) = sum_(d_1 divides n, d_2 divides m) f(d_1 d_2)g((n m)/(d_1 d_2)) \
+  &= sum_(d_1 divides n, d_2 divides m) f(d_1)f(d_2)g(n/d_1)g(m/d_2) = (sum_(d_1 divides n) f(d_1)g(n/d_1))(sum_(d_2 divides m) f(d_2)g(m/d_2)) \
+  &= (f convolve g(n))(f convolve g(m))
+  $
 ]
 
-#proposition[
-  L'inverse par la convolution de $f$ est $g$ telle que : $f convolve g = delta$
+#theorem[
+  Fixons $alpha >= 0$
 
-  c'est-à-dire :
+  La fonction suivante est multiplicative :
+  $sigma_alpha : application(NN^*,CC,n,sum_(d divides n) d^alpha)$
+]
+
+#property[
+  $sigma_0 = $ "le nombre de diviseurs de $n$"
+  
+  $sigma_1 = $ "la somme des diviseurs de $n$"
+]
+
+#proof[
+  Soient $n,m in NN^*$ tels que $m and n = 1$
+
+  Alors :
+
+  $sigma_alpha (n m) = sum_(d divides n m) d^alpha = sum_(d_1 divides n, d_2 divides m) d_1^alpha d_2^alpha = (sum_(d_1 divides n) d_1^alpha)(sum_(d_2 divides m) d_2^alpha)$
+]
+
+#theorem[
+  Soit $f$ une fonction arithmétique telle que $f(1) != 0$
+
+  Alors il existe une fonction arithmétique $g$ telle que $f convolve g = delta$
+]
+_Autrement dit, l'inverse de $f$ par la convolution existe toujours_
+
+#remark("Rappel")[
+  $delta(n) = cases(1 "si" n = 1, 0 "si" n > 1) = bb(1)_({1})$
+]
+
+#proof[
+  On construit $g(n)$ par récurrence sur $n$, on pose $g(1) = 1/f(1)$, ainsi $(f convolve g)(1) = f(1)g(1/1) = delta(1)$
+
+  Supposons que $g(1),dots,g(k)$ soient construits pour $k >= 1$. Il faut que :
+
   $
-  forall n in NN^* : sum_(d divides n) f(d) g(n/d) = cases(0 " " &"si" n>= 2,1 &"si" n = 1)
+  0 = delta(k+1) = (f convolve g)(k + 1) = sum_(d divides k+1) f(d) g((k+1)/d) = f(1)g(k+1) + sum(d divides k+1 \ d!= 1) f(d)g((k+1)/d)
   $
+
+  On peut choisir $g(k+1)$ de sorte que cette équation soit vraie.
+]
+
+#theorem[
+  Supposons que $f : NN^* --> CC$ est multiplicative.
+
+  Alors $f*^(-1)$, l'inverse par la convolution, est aussi multiplicative.
+]
+
+#proof[
+  Soient $p$ premier, $alpha in NN^*$.
+
+  On construit par récurrence les valeurs $g(p^(alpha))$ où $g$ est sensé être $f*^(-1)$
+
+  - Pour $alpha = 1$ :
+    $f(p)g(1) + g(p)f(1) = (f convolve g)(p) = delta(p) = 0$
+
+    Ce qui nécessite que :
+    $
+    g(p) = (f(p)g(1))/(-f(1)) = -(f(p))/f(1)^2
+    $
+
+    Supposons que $g(p),dots,g(p^beta)$ soient contruits.
+
+    Il faut que $0 = (f convolve g)(p^(beta+1)) = sum_(i=0)^(p+1) f(p^i)g(p^(beta+1-i)) = f(1)g(p^(beta+1))+sum_(i=1)^(beta+1)f(p^i)g(p^(beta+1-i))$. Il y a une unique solution pour $g(p^(beta+1))$.
+
+    Si $n = product_(i) p_i^(alpha_i)$, alors on pose $g(n) = product_i g(p_i^(alpha_i))$ et on a bien $g$ multiplicative.
+]
+
+#exercice[
+  Vérifier que $f convolve g = delta$ ("facile").
 ]
 
 #theorem[
@@ -787,4 +896,137 @@
   $mu$ est la "fonction de Moebius" et est définie comme :
 
   $ mu(n) = cases(0 "   "&"si" n "est divisible par un carré parfait" != 1,1 &"si" n "est le produit d'un nombre pair de premiers distincts",-1 &"si" n "est le produit d'un nombre impair de premiers distincts") $
+]
+
+= 
+
+#underline[*Motivations :*]
+
+Plaçons-nous dans $ZZ\/p ZZ$ avec $p >= 3$. On cherche les racines d'un polynôme dans cet espace. Si le polynôme est de degré $2$, facile :
+$
+X^2 + b X + c = 0 <==> (X + b/2)^2 - b^2/4 + c = 0 <==> (X+b/2)^2 = (b^2 - 4 c)/4
+$
+
+Pour les degrés plus élevés, c'est dur.
+
+Le problème est réduit à comprendre les éléments de $ZZ\/ p ZZ$ qui s'écrivent comme des carrés.
+
+#definition("Symbole de Legendre")[
+  Soit $p >= 3$ premier. Soit $delta in ZZ \/ p ZZ$, ou $delta in ZZ$
+
+  On définit :
+  $
+  (delta/p) = cases(1 quad &"si" exists b in ZZ\/p ZZ "tq" b^2 = delta, -1 &"si" forall b in ZZ \/ p ZZ "tq" b^2 != delta,0 &"si" delta =  0)
+  $
+]
+
+#proposition[
+  $abs({delta in (ZZ\/ p ZZ)^* | (delta/p) = 1}) = (p-1)/2$
+]
+
+#proposition[
+  - Si $(delta/p) = 1$ :
+    - Si $(b/p) = 1$, alors $((delta b)/p) = 1 quad (1)$
+      
+      #v(.5em)
+    - Si $(b/p) = -1$, alors $((delta b)/p) = -1 quad (2)$
+  - Si $(delta/p) = -1$ :
+    - Si $(b/p) = -1$, alors $((delta b)/p) = 1 quad (3)$
+]
+
+#proof[
+
+  Si $delta = u^2$, $b = v^2$, alors $delta b = (u v)^2$
+
+  Supposons que $(b/p) = -1$
+
+  Considérons $phi : application((ZZ\/ p ZZ)^*,(ZZ\/ p ZZ)^*,x,x b)$
+
+  $phi$ est bijective car elle admet une fonction réciproque.
+
+
+  Supposons que $x = u^2$, $x b = v^2$
+
+  Alors $b = x b x^(-1) = (v u^(-1))^2$, contradiction. Cela démontre $(2)$
+
+  $phi$ est une bijection et envoie chaque carré à un non-carré.
+
+  En plus, on sait qu'il y a autant de carrés que de non-carrés. Donc $phi$ introduit une bijection des carrés vers les non-carrés, donc son complémentaire qui envoie les non-carrés aux carrés est aussi une bijection.
+
+  $phi$ est un morphisme de groupe de $(ZZ\/ p ZZ)^*$ à ${-1,1}$
+
+]
+
+#proposition[
+  $(2/p) = cases(1 quad &"si" p = +- 1 mod(8),-1 &"si" p = +- 3 mod(8))$
+]
+
+#proof[
+
+  $
+  product_(1<=m<=p-1 \ 2 divides m) m = product_(j=1)^(p-1)/2 (2j) = 2^((p-1)/2) ((p-1)/2)! quad (*)
+  $
+
+  $
+  product_((p-1)/2 < m <= p-1 \ 2 divides m) m = (-1)^(j_0) product (p-m) = (-1)^(j_0) product_(n <- (p-1)/2 \ 2 divides.not n) n
+  $
+
+  où $j_0 = floor((p-1)/2)$
+
+  Donc, en regroupant les autres :
+  $
+  product_(1<=m<=p-1 \ 2 divides m) = (product_(m <= p-1 \ 2 divides m) m)(product_((p-1)/2< m <= p-1 \ 2 divides m) m) = (-1)^(j_0) product_(m <= (p-1)/2 \ 2 divides m) m product_(m <= (p-1)/2 \ 2 divides.not m) m = (-1)^(j_0) ((p-1)/2) quad (**)
+  $
+
+  Donc $(2/p) = 2^((p-1)/2) = (-1)^(j_0)$ via $(*)$ et $(**)$
+]
+
+#theorem("De réciprocité quadratique de Gauss")[
+
+Soient $p,q >= 3$ premiers.
+
+Alors :
+$
+(p/q)(q/p) = (-1)^((p-1)/2 cdot (q-1)/2)
+$
+]
+
+_"Cela établit une relation mystérieuse entre $ZZ\/p ZZ$ et $ZZ\/q ZZ$ qui n'ont (pour le moment) aucun lien entre eux"_
+
+#corollary[
+  $(3/p) = cases(1 quad &"si" p equiv +-1 mod(12),-1 quad&"si" p equiv +-5 mod(12))$
+]
+
+#proof[
+  $
+  (3/p) = (p/3)(-1)^((p-1)/2 cdot (3-1)/2) = (-1)^((p-1)/2)(p/3)
+  $
+
+  où $
+  p/3 = cases(1 quad &"si" p equiv 1 mod(3),-1 &"si" p equiv -1 mod(3))
+  $
+]
+
+#theorem[
+  $(ZZ\/p ZZ)^* = E uniondisj -E$ où :
+  - $E = {1,dots,(p-1)/2}$
+  - $-E = {-1, dots, (p-1)/2} = {(p+1)/2,dots,p-1}$
+  
+  Si $S in E$ et $delta in (ZZ\/p ZZ)^*$, alors $S$ s'écrit $delta S = e_S (delta) cdot S_delta$ où $e_S (delta) = +- 1$ et $S_delta in E$
+]
+
+#lemma[
+  On fixe $delta in (ZZ\/p ZZ)^*$.
+
+  Alors : $application(E,E,S,S_delta)$ est une bijection
+]
+
+#proof[
+  Il suffit de montrer que cette application est injective.
+
+  Supposons que $S,S^' in E$ ont $delta S = e_S (delta) S_delta$ et $delta S^' = e_(S^')(delta)S^'_(delta)$
+
+  Donc $S = delta^(-1)e_S (delta) S^' delta = delta^(-1)S^' delta$ ou $-delta^(-1)S^' delta = S^'$ ou $-S^'$
+
+  Donc $S = S^'$
 ]
