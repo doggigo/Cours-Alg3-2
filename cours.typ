@@ -1087,8 +1087,13 @@ _"Cela établit une relation mystérieuse entre $ZZ\/p ZZ$ et $ZZ\/q ZZ$ qui n'o
 
 #lemma[
   Pour deux fonctions arithmétiques $Phi,psi$ :
+  $F(psi)(x)cdot F(Phi)(x) = F(psi convolve Phi)(x)$
+]
+
+#corollary[
+  pour tout $x$
   $
-  1/zeta(k) = sum_(n=1)^infinity mu(n)/n^k
+  1/zeta(x) = sum_(n=1)^infinity mu(n)/n^x
   $
   où $mu$ est la fonction de Moebius.
 ]
