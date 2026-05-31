@@ -957,6 +957,14 @@ Le problème est réduit à comprendre les éléments de $ZZ\/ p ZZ$ qui s'écri
 
 ]
 
+#lemma("d'Euler")[
+  $(delta/p) = delta^((p-1)/2)$ dans $ZZ\/p ZZ$
+]
+
+#proof[
+  À faire
+]
+
 #proposition[
   $(2/p) = cases(1 quad &"si" p = +- 1 mod(8),-1 &"si" p = +- 3 mod(8))$
 ]
@@ -1029,4 +1037,81 @@ _"Cela établit une relation mystérieuse entre $ZZ\/p ZZ$ et $ZZ\/q ZZ$ qui n'o
   Donc $S = delta^(-1)e_S (delta) S^' delta = delta^(-1)S^' delta$ ou $-delta^(-1)S^' delta = S^'$ ou $-S^'$
 
   Donc $S = S^'$
+]
+
+#lemma[
+  Si $n in NN^*$ est impair, alors en écrivant $f(z) = e^(i 2pi z) - e^(-i 2pi z)$, on a :
+  $
+  f(n z)/f(z) = product_(k=1)^((n-1)/2) f(z+k/n)f(z-k/n)
+  $
+]
+
+#lemma[
+  Pour $p$ premier, $a in (ZZ\/p ZZ)^*$ :
+  $
+  product_(s in E) f((s a)/p) = (a/p) product_(s in E) f(s/p)
+  $
+]
+
+=
+
+#definition("Fonction Zeta de Riemann")[
+  Pour tout $x > 1$, on définit la fonction $zeta$ comme :
+  $
+  zeta(x) = sum_(n=1)^(+infinity) 1/n^x
+  $
+]
+#definition("Séries (génératrices) de Dirichlet")[
+  Si $Phi$ est une fonction arithmétique multiplicative, on définit la série de Dirichlet associée $F(Phi)$ comme :
+  $
+  F(Phi)(x) = sum_(i=1)^infinity Phi(n)/n^x 
+  $
+
+  pour tout $x in NN^*$ tel que la série converge.
+]
+
+#definition[
+  On note la fonction $pi : NN^* --> NN$ qui pour tout $x >= 1$, associe $Card({k in [|1,x|] | k "est premier"})$
+]
+
+#theorem("Des nombres premiers/de La Vallée Poussin")[
+  On a :
+  $
+  lim_(x->+infinity) pi(x) ln(x)/x = 1 <==> pi(x) tilde_(x->+infinity) x/ln(x)
+  $
+]
+
+#theorem[
+  La série $sum_(p "premier")1/p$ diverge
+]
+
+#lemma[
+  Pour deux fonctions arithmétiques $Phi,psi$ :
+  $
+  1/zeta(k) = sum_(n=1)^infinity mu(n)/n^k
+  $
+  où $mu$ est la fonction de Moebius.
+]
+
+#proposition("Formule d'Euler")[
+  Pour tout $x$, on a :
+
+  $
+  zeta(x) = product_(p "premier") (sum_(k=0)^infinity p^(-k x)) = product_(p "premier") 1/(1-1/p^k)
+  $
+]
+
+#lemma[
+  Pour tout $p$ premier, on a :
+  $
+  sum_(k>=2) 1/(k p^(k x)) <= 1/(2p^k)
+  $
+]
+
+#lemma[
+  Pour tout $X > 1$ :
+
+  $
+  1/(X-1) <= zeta(x) <= X/(X-1)
+  $
 ]
