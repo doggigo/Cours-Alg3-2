@@ -912,31 +912,31 @@ Pour les degrés plus élevés, c'est dur.
 Le problème est réduit à comprendre les éléments de $ZZ\/ p ZZ$ qui s'écrivent comme des carrés.
 
 #definition("Symbole de Legendre")[
-  Soit $p >= 3$ premier. Soit $delta in ZZ \/ p ZZ$, ou $delta in ZZ$
+  Soit $p >= 3$ premier. Soit $a in ZZ \/ p ZZ$, ou $a in ZZ$
 
   On définit :
   $
-  (delta/p) = cases(1 quad &"si" exists b in ZZ\/p ZZ "tq" b^2 = delta, -1 &"si" forall b in ZZ \/ p ZZ "tq" b^2 != delta,0 &"si" delta =  0)
+  (a/p) = cases(1 quad &"si" exists b in ZZ\/p ZZ "tq" b^2 = a, -1 &"si" forall b in ZZ \/ p ZZ "tq" b^2 != a,0 &"si" a =  0)
   $
 ]
 
 #proposition[
-  $abs({delta in (ZZ\/ p ZZ)^* | (delta/p) = 1}) = (p-1)/2$
+  $abs({a in (ZZ\/ p ZZ)^* | (a/p) = 1}) = (p-1)/2$
 ]
 
 #proposition[
-  - Si $(delta/p) = 1$ :
-    - Si $(b/p) = 1$, alors $((delta b)/p) = 1 quad (1)$
+  - Si $(a/p) = 1$ :
+    - Si $(b/p) = 1$, alors $((a b)/p) = 1 quad (1)$
       
       #v(.5em)
-    - Si $(b/p) = -1$, alors $((delta b)/p) = -1 quad (2)$
-  - Si $(delta/p) = -1$ :
-    - Si $(b/p) = -1$, alors $((delta b)/p) = 1 quad (3)$
+    - Si $(b/p) = -1$, alors $((a b)/p) = -1 quad (2)$
+  - Si $(a/p) = -1$ :
+    - Si $(b/p) = -1$, alors $((a b)/p) = 1 quad (3)$
 ]
 
 #proof[
 
-  Si $delta = u^2$, $b = v^2$, alors $delta b = (u v)^2$
+  Si $a = u^2$, $b = v^2$, alors $a b = (u v)^2$
 
   Supposons que $(b/p) = -1$
 
@@ -958,7 +958,7 @@ Le problème est réduit à comprendre les éléments de $ZZ\/ p ZZ$ qui s'écri
 ]
 
 #lemma("d'Euler")[
-  $(delta/p) = delta^((p-1)/2)$ dans $ZZ\/p ZZ$
+  $(a/p) = a^((p-1)/2)$ dans $ZZ\/p ZZ$
 ]
 
 #proof[
@@ -1001,6 +1001,42 @@ $
 
 _"Cela établit une relation mystérieuse entre $ZZ\/p ZZ$ et $ZZ\/q ZZ$ qui n'ont (pour le moment) aucun lien entre eux"_
 
+#proof("(avec des propositions vues plus tard)")[
+  Soit $E = {1,...,(p-1)/2}$
+
+  $
+  (A) : product_(s in E) f((s q)/p) = (q/p) product_(s in E) f(s/p)
+  $
+
+  On utilise le lemme sur la factorisation de $f(n z)$ pour $n = q$, $z = s/p$ et $s in E$.
+
+  $
+  (B) : f((s q)/p)/f(s/p) = product_(t = 1)^((q-1)/2) f(s/p + t/q) f(s/p - t/q)
+  $
+
+  En combinant $(A)$ et $(B)$, on obtient :
+  $
+  (C) : (q/p) &= product_(s in E) f(s/p)/f((s t)/p) = product_(s in E) f((s q)/p)/f(s/p) = product_(s = 1)^((p-1)/2) product_(t=1)^((q-1)/2) f(s/p + t/q) f(s/p - t/q)
+  $
+
+  Le même raisonnement en inversant $p$ et $q$ donne :
+
+  $
+  (p/q) = product_(t=1)^((q-1)/2) product_(s=1)^((p-1)/2) f(s/p + t/q) f(t/q - s/p)
+  $
+
+  Remarquons que :
+  $f(s/p - t/q) = - f(t/q - s/p)$
+
+  Donc la différence entre $(C)$ et $(D)$ est une constante multiplicative valant $(-1)^"le nombre de facteurs"$.
+
+  Donc :
+
+  $
+  (p/q) = (q/p)(-1)^((p-1)/2 cdot (q-1)/2)
+  $
+]
+
 #corollary[
   $(3/p) = cases(1 quad &"si" p equiv +-1 mod(12),-1 quad&"si" p equiv +-5 mod(12))$
 ]
@@ -1020,29 +1056,76 @@ _"Cela établit une relation mystérieuse entre $ZZ\/p ZZ$ et $ZZ\/q ZZ$ qui n'o
   - $E = {1,dots,(p-1)/2}$
   - $-E = {-1, dots, (p-1)/2} = {(p+1)/2,dots,p-1}$
   
-  Si $S in E$ et $delta in (ZZ\/p ZZ)^*$, alors $S$ s'écrit $delta S = e_S (delta) cdot S_delta$ où $e_S (delta) = +- 1$ et $S_delta in E$
+  Si $S in E$ et $a in (ZZ\/p ZZ)^*$, alors $S$ s'écrit $a S = e_S (a) cdot S_a$ où $e_S (a) = +- 1$ et $S_a in E$
 ]
 
 #lemma[
-  On fixe $delta in (ZZ\/p ZZ)^*$.
+  On fixe $a in (ZZ\/p ZZ)^*$.
 
-  Alors : $application(E,E,S,S_delta)$ est une bijection
+  Alors : $application(E,E,S,S_a)$ est une bijection
 ]
 
 #proof[
   Il suffit de montrer que cette application est injective.
 
-  Supposons que $S,S^' in E$ ont $delta S = e_S (delta) S_delta$ et $delta S^' = e_(S^')(delta)S^'_(delta)$
+  Supposons que $S,S^' in E$ ont $a S = e_S (a) S_a$ et $a S^' = e_(S^')(a)S^'_(a)$
 
-  Donc $S = delta^(-1)e_S (delta) S^' delta = delta^(-1)S^' delta$ ou $-delta^(-1)S^' delta = S^'$ ou $-S^'$
+  Donc $S = a^(-1)e_S (a) S^' a = a^(-1)S^' a$ ou $-a^(-1)S^' a = S^'$ ou $-S^'$
 
   Donc $S = S^'$
+]
+
+#lemma[
+  Pour tout $a$ fixé :
+  $
+  product_(s in E) e_s (a) = (a/p)
+  $
+]
+
+#proof[
+  $
+  product_(s in E) a s &= a^((p-1)/2) product_(s in E) s \
+  &= product_(s in E) e_s (a) s_a = product_(s in E) e_s (a) product_(s in E) s a = product_(s in E) e_s (a) product_(s in E) s
+  $
+
+  Donc $product_(s in E) e_s (a) = a^((p-1)/2) = (a/p)$ par le lemme d'Euler
 ]
 
 #lemma[
   Si $n in NN^*$ est impair, alors en écrivant $f(z) = e^(i 2pi z) - e^(-i 2pi z)$, on a :
   $
   f(n z)/f(z) = product_(k=1)^((n-1)/2) f(z+k/n)f(z-k/n)
+  $
+]
+
+#proof[
+  On note $x = e^(i 2 pi z),y = e^(- i 2 pi z)$, donc $x = 1/y$ et on a :
+  $
+  x^n - y^n = product_(k=1)^n (x-e^((i 2 k pi)/n)y)
+  $
+
+  Et :
+
+  $product_(k=0)^(n-1)f(z + k/n) = product_(k=0)^(n-1) (x e^((i 2 k pi)/n) - y e^((i 2 k pi)/n)) = product_(k=0)^(n-1)e^((i 2 k pi)/n) (x-y e^(-(i 4 pi)/n))= product_(k=0)^(n-1)e^((i 2 k pi)/n) product_(k=0)^(n-1)(x-y e^(-(i 4 pi)/n))$
+
+  Comme $2 and n = 1$ ; $0,2,...,2(n-1)$ forment un système complet de résidus modulo $n$.
+
+  Autrement dit : $ZZ\/n ZZ = {bar(0),bar(2),dots,bar(2(n-1))}$
+
+  Ainsi $product_(k=0)^(n-1)f(z + k/n) = e^(sum_(k=0)^(n-1) (i 2 k pi)/n) product_(k=0)^(n-1)(x-y e^((i 2 k pi)/n)) = e^((i 2 pi)/n cdot (n(n-1))/2) (x^n - y^n) = e^(i (n-1) pi) f(n z)$
+
+  Et :
+
+  $
+  f(n z) = product_(k=0)^(n-1) f(z + k/n) = f(z) product_(k=1)^((n-1)/2) f(z + k/n) product_(k=(n+1)/2)^(n-1) f(z + k/n)
+  $
+
+  La fonction $f$ est $1$-périodique.
+
+  $
+  f(n z) &= f(z) product_(k=1)^((n-1)/2) f(z + k/n) product_(k=(n-1)/2)^(n-1) f(z + k/n - 1) \
+  &= f(z) product_(k=1)^((n-1)/2) f(z + k/n) product_(k=(n-1)/2)^(n-1) f(z - (n-k)/n) \
+  &= f(z) product_(k=1)^((n-1)/2) f(z+k/n)f(z-k/n)
   $
 ]
 
@@ -1053,7 +1136,86 @@ _"Cela établit une relation mystérieuse entre $ZZ\/p ZZ$ et $ZZ\/q ZZ$ qui n'o
   $
 ]
 
+#proof[
+
+  $f((s a)/p) = f((e_s (a) s_a)/p)$
+
+  $f(z) = e^(i 2 pi z) - e^(- i 2 pi z)$ est une fonction impaire.
+
+  Donc $f((s a)/p) = e_s (a) f(s_a/p) = (a/p) product_(s in E) f(s/p)$
+
+]
+
 =
+
+*Motivations :*
+
+#definition[
+  On note la fonction $pi : NN^* --> NN$ qui pour tout $x >= 1$, associe $Card({k in [|1,x|] | k "est premier"})$
+]
+
+Pour tout $x in NN$, on a $pi(x) < n$ et $lim_(x->+infinity) pi(x) = +infinity$. On s'intéresse donc au comportement asymptotique $pi$
+
+#theorem("Des nombres premiers/de La Vallée Poussin")[
+  On a :
+  $
+  lim_(x->+infinity) pi(x)/(x/ln(x)) = 1 <==> pi(x) tilde_(x->+infinity) x/ln(x)
+  $
+]
+
+#theorem[
+  La série $sum_(p "premier")1/p$ diverge
+]
+
+#proof[
+  _Cette preuve utilise des notions vues plus loins_
+
+  Supposons que $sum_(p "premier") 1/p <= M$ avec $M in RR$
+
+  Ainsi, pour $x > 1$, on a :
+
+  $sum_(p "premier")1/p^x < sum_(p "premier") 1/p <= M$
+
+  Et :
+
+  $
+  log(zeta(x)) &= sum_(p "premier") sum_(k=1)^infinity 1/(k p^(k x)) = sum_(p "premier") 1/p^x + sum_(p "premier")sum_(k=2)^infinity 1/(k p^(k x)) \
+  &<= sum_(p "premier") 1/p^x + sum_(p "premier") 1/(2 p^x) = 3/2 (sum_(p "premier") 1/p^x) <= 3/2 M
+  $
+
+  Donc :
+
+  $
+  (1) : forall x > 1, zeta(x) <= e^(3/2 M)
+  $
+
+  On sait que $sum_(n = 1)^infinity 1/n$ est divergente.
+
+  Donc il existe $L in NN^*$ tel que $sum_(n = 1)^L 1/n > e^(3/2 M) + 1$
+
+  Considérons la fonction $g$ définie par :
+
+  $g(x) = sum_(n=1) 1/n^x$ définie sur $]0,+infinity[$
+
+  C'est une somme de fonctions continues, donc elle est continue.
+
+  On a :
+
+  $g(1) = sum_(n=1)^L 1/n  > e^(3/2 M) + 1$
+
+  Donc :
+
+  $exists delta > 0$ tel que $forall x in [1,1+delta], g(x) > e^(3/2 M)$
+
+  Pour $x in [1,1+delta]$ :
+
+  $
+  (2) : zeta(x) = sum_(n=1)^infinity 1/n^x > sum_(n=1)^L 1/n^x = g(x) > e^(3/2 M)
+  $
+
+  Contradiction via $(1)$ et $(2)$
+
+]
 
 #definition("Fonction Zeta de Riemann")[
   Pour tout $x > 1$, on définit la fonction $zeta$ comme :
@@ -1064,26 +1226,12 @@ _"Cela établit une relation mystérieuse entre $ZZ\/p ZZ$ et $ZZ\/q ZZ$ qui n'o
 #definition("Séries (génératrices) de Dirichlet")[
   Si $Phi$ est une fonction arithmétique multiplicative, on définit la série de Dirichlet associée $F(Phi)$ comme :
   $
-  F(Phi)(x) = sum_(i=1)^infinity Phi(n)/n^x 
+  F(Phi)(x) = sum_(n=1)^infinity Phi(n)/n^x 
   $
 
   pour tout $x in NN^*$ tel que la série converge.
 ]
 
-#definition[
-  On note la fonction $pi : NN^* --> NN$ qui pour tout $x >= 1$, associe $Card({k in [|1,x|] | k "est premier"})$
-]
-
-#theorem("Des nombres premiers/de La Vallée Poussin")[
-  On a :
-  $
-  lim_(x->+infinity) pi(x) ln(x)/x = 1 <==> pi(x) tilde_(x->+infinity) x/ln(x)
-  $
-]
-
-#theorem[
-  La série $sum_(p "premier")1/p$ diverge
-]
 
 #lemma[
   Pour deux fonctions arithmétiques $Phi,psi$ :
@@ -1107,6 +1255,18 @@ _"Cela établit une relation mystérieuse entre $ZZ\/p ZZ$ et $ZZ\/q ZZ$ qui n'o
 ]
 
 #lemma[
+  Pour tout $x > 1$ : $log(zeta(x)) = sum_(p "premier") -log(1-1/p^x)$
+]
+
+#proof[
+  On sait que $-log(1-y) = sum_(k=1)^(+infinity) y^k/k$ qui est convergente quand $0 <= y <= 1$
+
+  On l'applique à $1/p^x < 1$ :
+  #v(1em)
+  $log(zeta(x)) = sum_(p "premier")sum_(k=1)^infinity 1/(k p^(k x)) = sum_(p "premier")1/p^x + sum_(p "premier") sum_(k=2)^infinity 1/(k p^(k x))$ 
+]
+
+#lemma[
   Pour tout $p$ premier, on a :
   $
   sum_(k>=2) 1/(k p^(k x)) <= 1/(2p^k)
@@ -1114,9 +1274,27 @@ _"Cela établit une relation mystérieuse entre $ZZ\/p ZZ$ et $ZZ\/q ZZ$ qui n'o
 ]
 
 #lemma[
-  Pour tout $X > 1$ :
+  Pour tout $x > 1$ :
 
   $
-  1/(X-1) <= zeta(x) <= X/(X-1)
+  1/(x-1) <= zeta(x) <= x/(x-1)
+  $
+]
+
+#proof[
+  $zeta(x) = sum_(n=1)^(+infinity) 1/n^x$
+
+  Fixons $x > 1$ et considérons la fonction $g(t) = 1/t^x$ définie sur $]0,+infinity[$
+
+  Pour $t in [n,n+1]$, on a :
+
+  $
+  1/(n+1)^x <= 1/t^x <= 1/n^x
+  $
+
+  car $g$ est décroissante. En utilisant la méthode de comparaison Série-Intégrale :
+
+  $
+  1 + sum_(n=1)^infinity integral_n^(n+1) g(t) d t = 1 + integral_0^(+infinity)g(t) d t = x/(x-1)>= sum_(n=1)^infinity 1/n^x >= sum_(n=1)^infinity integral_n^(n+1) g(t)d t = integral_1^(+ infinity) g(t) d t = 1/(x-1)
   $
 ]
