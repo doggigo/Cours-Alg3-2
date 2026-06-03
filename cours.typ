@@ -932,6 +932,8 @@ Le problème est réduit à comprendre les éléments de $ZZ\/ p ZZ$ qui s'écri
     - Si $(b/p) = -1$, alors $((a b)/p) = -1 quad (2)$
   - Si $(a/p) = -1$ :
     - Si $(b/p) = -1$, alors $((a b)/p) = 1 quad (3)$
+
+  Autrement dit : $((a b)/p) = (a/p)(b/p)$
 ]
 
 #proof[
