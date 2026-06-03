@@ -1056,23 +1056,23 @@ _"Cela établit une relation mystérieuse entre $ZZ\/p ZZ$ et $ZZ\/q ZZ$ qui n'o
   - $E = {1,dots,(p-1)/2}$
   - $-E = {-1, dots, (p-1)/2} = {(p+1)/2,dots,p-1}$
   
-  Si $S in E$ et $a in (ZZ\/p ZZ)^*$, alors $S$ s'écrit $a S = e_S (a) cdot S_a$ où $e_S (a) = +- 1$ et $S_a in E$
+  Si $s in E$ et $a in (ZZ\/p ZZ)^*$, alors $s$ s'écrit $a s = e_s (a) cdot S_a$ où $e_s (a) = +- 1$ et $s_a in E$
 ]
 
 #lemma[
   On fixe $a in (ZZ\/p ZZ)^*$.
 
-  Alors : $application(E,E,S,S_a)$ est une bijection
+  Alors : $application(E,E,s,s_a)$ est une bijection
 ]
 
 #proof[
   Il suffit de montrer que cette application est injective.
 
-  Supposons que $S,S^' in E$ ont $a S = e_S (a) S_a$ et $a S^' = e_(S^')(a)S^'_(a)$
+  Supposons que $s,s^' in E$ ont $a s = e_s (a) s_a$ et $a s^' = e_(s^')(a)s^'_(a)$
 
-  Donc $S = a^(-1)e_S (a) S^' a = a^(-1)S^' a$ ou $-a^(-1)S^' a = S^'$ ou $-S^'$
+  Donc $s = a^(-1)e_s (a) s^' a = a^(-1)s^' a$ ou $-a^(-1)s^' a = s^'$ ou $-s^'$
 
-  Donc $S = S^'$
+  Donc $s = s^'$
 ]
 
 #lemma[
