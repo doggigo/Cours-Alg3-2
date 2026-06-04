@@ -1058,7 +1058,7 @@ _"Cela établit une relation mystérieuse entre $ZZ\/p ZZ$ et $ZZ\/q ZZ$ qui n'o
   - $E = {1,dots,(p-1)/2}$
   - $-E = {-1, dots, (p-1)/2} = {(p+1)/2,dots,p-1}$
   
-  Si $s in E$ et $a in (ZZ\/p ZZ)^*$, alors $s$ s'écrit $a s = e_s (a) cdot S_a$ où $e_s (a) = +- 1$ et $s_a in E$
+  Si $s in E$ et $a in (ZZ\/p ZZ)^*$, alors $s$ s'écrit $a s = e_s (a) cdot s_a$ où $e_s (a) = +- 1$ et $s_a in E$
 ]
 
 #lemma[
@@ -1271,7 +1271,7 @@ Pour tout $x in NN$, on a $pi(x) < n$ et $lim_(x->+infinity) pi(x) = +infinity$.
 #lemma[
   Pour tout $p$ premier, on a :
   $
-  sum_(k>=2) 1/(k p^(k x)) <= 1/(2p^k)
+  sum_(k>=2) 1/(k p^(k x)) <= 1/(2p^x)
   $
 ]
 
